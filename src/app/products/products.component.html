@@ -1,0 +1,10 @@
+<h1>{{page.category.name}}</h1>
+
+<div class="card" style="width: 18rem;" *ngFor="let product of products" (click)="getProductID(product.id)">
+  <img class="card-img-top" [src]="'http://kodytek.cz:8080/rest-api/' + product.images[0].miniaturePath" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{product.title}}</h5>
+    <p class="card-text">{{product.price/100}}kč</p>
+    <a href="#" class="btn btn-primary">Add to cart</a>
+  </div>
+</div>

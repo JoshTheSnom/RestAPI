@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'Restapi'`, () => {
+  it(`should have as title 'CustomBootstrap'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('Restapi');
+    expect(app.title).toEqual('CustomBootstrap');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('Restapi app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('CustomBootstrap app is running!');
   });
 });

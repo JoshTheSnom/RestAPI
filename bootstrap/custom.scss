@@ -1,0 +1,10 @@
+$theme-colors: (
+  "primary": #26c281
+);
+
+$font-family-base: "Lucida Console";
+$body-bg: lightgray;
+$card-bg: #dddecc;
+$border-radius: 2px;
+
+@import "~bootstrap";

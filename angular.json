@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "Restapi": {
@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Restapi"
+    }
+  },
+  "defaultProject": "Restapi",
+  "cli": {
+    "analytics": "93b0be6e-24be-4e40-ab6c-471c4843ba8f"
+  }
 }
