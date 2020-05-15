@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CategoriesService } from './services/categories.service';
+import { CategoriesService } from './services/categories.service';  
 import { Category } from './models/category.model';
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
