@@ -7,7 +7,7 @@ import {InfoComponent} from './info/info.component';
 const routes: Routes = [
   {path: 'products', component: ProductsComponent},
   {path: 'info', component: InfoComponent},
-  {path: '', redirectTo: '/products', pathMatch: 'full'}
+  {path: '', redirectTo: '/info', pathMatch: 'full'}
 ];
 
 @NgModule({

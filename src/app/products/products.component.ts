@@ -2,9 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CategoriesService } from '../services/categories.service';
-import { Page } from '../models/page.model';
+import { CategoryInfo } from '../models/categoryinfo.model';
 import { Product } from '../models/product.model';
-import { Category } from '../models/category.model';
 
 @Component({
   selector: 'app-products',
@@ -15,26 +14,36 @@ export class ProductsComponent implements OnInit {
 
   public name: string;
   public description: string;
-  public page: Page;
+  public categoryInfo: CategoryInfo;
   public products: Product;
-  public categories: Category;
+  public productsArray: Product[];
+  public categoryid: number;
+  public pageNumber: number;
+  public pageCount: number;
 
-  constructor(private httpClient: HttpClient, private activatedRoute: ActivatedRoute, private CategoryService: CategoriesService, private router: Router) {
+  constructor(private httpClient: HttpClient, private CategoryService: CategoriesService, private activatedRoute: ActivatedRoute, private router: Router) {
 
   }
 
-  getProductID(id) {
-    this.router.navigate(['/productPage'], {queryParams: {id}});
-  }
+  // ahoj same. paginace mi nejde kvůli stejnému důvodu jako všechno. Cannot read property 'category' of undefined.
+  // ptal jsem se ostatních na to ale oni buďto nevěděli nebo měli stejnej error ale i tak jim program fungoval
+  // pls nedávej mi 0% xd
+  // p.s.: na tu věc s obrázkama jsem taky nepřišel. jsem asi prostě debil
 
   ngOnInit() {
     this.activatedRoute.queryParams.subscribe(params => {
-      this.CategoryService.getCategory(params.id)
-        .subscribe((category: Page) => {
-          this.page = category;
-          this.products = category.products;
+        this.CategoryService.getCategory(params.id, this.pageNumber)
+          .subscribe((category: CategoryInfo) => {
+            this.pageCount = category.pagesCount;
+            this.categoryInfo = category;
+            this.products = category.products;
+          });
       });
-    });
   }
 
+getProductID(id: number) {
+  this.router.navigate(['/info'], {queryParams: {id}});
 }
+}
+
+
