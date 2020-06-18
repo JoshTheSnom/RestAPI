@@ -25,11 +25,6 @@ export class ProductsComponent implements OnInit {
 
   }
 
-  // ahoj same. paginace mi nejde kvůli stejnému důvodu jako všechno. Cannot read property 'category' of undefined.
-  // ptal jsem se ostatních na to ale oni buďto nevěděli nebo měli stejnej error ale i tak jim program fungoval
-  // pls nedávej mi 0% xd
-  // p.s.: na tu věc s obrázkama jsem taky nepřišel. jsem asi prostě debil
-
   ngOnInit() {
     this.activatedRoute.queryParams.subscribe(params => {
         this.CategoryService.getCategory(params.id, this.pageNumber)
@@ -41,8 +36,8 @@ export class ProductsComponent implements OnInit {
       });
   }
 
-getProductID(id: number) {
-  this.router.navigate(['/info'], {queryParams: {id}});
+addToCart(id: number) {
+  this.router.navigate(['/cart'], {queryParams: {id}});
 }
 }
 
